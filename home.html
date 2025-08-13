@@ -1,0 +1,42 @@
+﻿<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>אלגברה לכיתה ז</title>
+  <style>
+    :root{--bg:#0a1a3a;--bg2:#0e2452;--ink:#eef3ff;--muted:#c9d4ffcc;--r:18px;--sh:0 14px 40px rgba(0,0,0,.35)}
+    *{box-sizing:border-box} html,body{height:100%}
+    body{margin:0;font-family:system-ui,"Segoe UI",Arial;background:radial-gradient(1000px 600px at 80% 0%,var(--bg2),var(--bg));color:var(--ink);display:flex;align-items:center;justify-content:center;min-height:100vh;opacity:0;animation:fadeIn .5s ease forwards}
+    @keyframes fadeIn{to{opacity:1}} @keyframes fadeOut{to{opacity:0}}
+    .wrap{width:min(1100px,92vw);padding:24px;border-radius:24px;box-shadow:var(--sh);border:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02))}
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+    .title{margin:0;font-size:clamp(28px,3.8vw,44px)} .subtitle{margin:0;color:var(--muted)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:18px}
+    .btn{display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--ink);border:1px solid rgba(255,255,255,.14);background:linear-gradient(180deg,#112a5a,#0d234e);border-radius:18px;padding:16px 14px;min-height:64px;font-weight:700;box-shadow:var(--sh);transition:transform .06s ease,filter .2s}
+    .btn:hover{transform:translateY(-2px);filter:brightness(1.05)} .btn:active{transform:translateY(0)}
+    .btn.inactive{opacity:.75}
+    footer{margin-top:18px;text-align:center;color:var(--muted)}
+    .fade-out{animation:fadeOut .35s ease forwards}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header><h1 class="title">אלגברה לכיתה ז</h1><p class="subtitle">בחר נושא כדי להמשיך</p></header>
+    <section class="grid" id="topics">
+      <a class="btn" data-link="index.html" href="#">ביטויים אלגבריים</a>
+      <a class="btn inactive" data-link="placeholder.html" href="#"></a>
+      <a class="btn inactive" data-link="placeholder.html" href="#"></a>
+      <a class="btn inactive" data-link="placeholder.html" href="#"></a>
+      <a class="btn inactive" data-link="placeholder.html" href="#"></a>
+      <a class="btn inactive" data-link="placeholder.html" href="#"></a>
+      <a class="btn inactive" data-link="placeholder.html" href="#"></a>
+    </section>
+    <footer>© <span id="year"></span> יניב מזרחי — ממשק אחיד</footer>
+  </main>
+  <script>
+    document.getElementById("year").textContent=new Date().getFullYear();
+    const go=u=>{document.body.classList.add("fade-out");setTimeout(()=>location.href=u,250)};
+    document.querySelectorAll("[data-link]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();go(a.getAttribute("data-link"));}));
+  </script>
+</body>
+</html>
