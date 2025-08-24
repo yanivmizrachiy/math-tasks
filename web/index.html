@@ -1,24 +1,25 @@
-<!doctype html><html lang="he" dir="rtl"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<!doctype html><html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="./logo.svg">
 <title>Docs Smart Edit</title>
-<style>body{font:16px/1.6 system-ui;margin:24px;direction:rtl}.row{display:flex;gap:8px;flex-wrap:wrap}input,textarea{width:100%;max-width:740px;padding:8px;border:1px solid #ccc;border-radius:10px}</style>
-</head><body>
-<h1>Docs Smart Edit – v2.0</h1>
-<label>Doc ID<input id="doc" placeholder="1AbC..." /></label>
-<label>Parser URL<input id="parser" value="http://127.0.0.1:8080/parse" /></label>
-<label>WebApp URL (Apps Script)<input id="exec" placeholder="https://script.google.com/macros/s/XXX/exec" /></label>
-<label>פקודה בעברית<textarea id="cmd" rows="4" placeholder="מצא חדשנות והחלף ב חדשנות ויצירתיות"></textarea></label>
-<div class="row"><button id="run">הפעל</button><pre id="out"><script>
-const $=s=>document.querySelector(s);
-$('#run').onclick=async()=>{
-  try{
-    const docId=$('#doc').value.trim(); const parser=$('#parser').value.trim(); const exec=$('#exec').value.trim(); const text=$('#cmd').value.trim();
-    if(!docId||!parser||!exec||!text){ alert('חסר שדה'); return; }
-    const pRes=await fetch(parser,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({docId,text})});
-    const parsed=await pRes.json(); if(!parsed.ok) throw new Error(parsed.error||'parse failed');
-    const eRes=await fetch(exec,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({docId,requestId:parsed.requestId,ops:parsed.ops})});
-    const out=await eRes.json(); $('#out').textContent=JSON.stringify(out,null,2);
-  }catch(e){ $('#out').textContent='ERROR: '+(e?.message||e); }
-}
-</script>
+<link rel="stylesheet" href="./styles.css">
+<script defer src="./app.js"></script>
+</head>
+<body>
+<header class="wrap">
+  <img src="./logo.svg" alt="Logo" width="64" height="64">
+  <h1>Docs Smart Edit</h1>
+  <button id="themeBtn" aria-label="Toggle theme">🌓</button>
+</header>
+
+<main class="wrap">
+  <p>ברוך הבא! זהו אתר ה‑PWA שלך. כל עדכון שתדחוף ל‑<code>main</code> ייפרס אוטומטית ל‑GitHub Pages.</p>
+  <p>עדכון אחרון: <span id="ts"></span></p>
+  <a class="cta" href="' + $URL + '">פתח את האפליקציה בכתובת הקבועה</a>
+</main>
+
+<footer class="wrap"><small>© ' + (Get-Date).Year + ' · נבנה אוטומטית</small></footer>
 </body></html>

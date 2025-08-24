@@ -1,0 +1,12 @@
+{
+  "name": "Docs Smart Edit",
+  "short_name": "DocsEdit",
+  "description": "אפליקציית עריכה חכמה למסמכי Google Docs",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0b0e11",
+  "theme_color": "#0969da",
+  "icons": [
+    { "src": "./logo.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
