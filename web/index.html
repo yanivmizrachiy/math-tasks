@@ -8,8 +8,7 @@
 <label>Parser URL<input id="parser" value="http://127.0.0.1:8080/parse" /></label>
 <label>WebApp URL (Apps Script)<input id="exec" placeholder="https://script.google.com/macros/s/XXX/exec" /></label>
 <label>פקודה בעברית<textarea id="cmd" rows="4" placeholder="מצא חדשנות והחלף ב חדשנות ויצירתיות"></textarea></label>
-<div class="row"><button id="run">הפעל</button><pre id="out"></pre></div>
-<script>
+<div class="row"><button id="run">הפעל</button><pre id="out"><script>
 const $=s=>document.querySelector(s);
 $('#run').onclick=async()=>{
   try{
@@ -22,6 +21,4 @@ $('#run').onclick=async()=>{
   }catch(e){ $('#out').textContent='ERROR: '+(e?.message||e); }
 }
 </script>
-<p><strong>Executor:</strong> <a href="" target="_blank">פתח Web App</a></p>
 </body></html>
-
