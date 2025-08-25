@@ -1,0 +1,22 @@
+{
+  "name": "math-tasks",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js",
+    "dev": "tsx watch src/index.ts",
+    "lint": "eslint .",
+    "format": "prettier -w .",
+    "test": "node -e \"console.log('no tests yet')\""
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "eslint": "^9.4.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "prettier": "^3.2.5",
+    "tsx": "^4.7.0",
+    "typescript": "^5.4.0"
+  }
+}
