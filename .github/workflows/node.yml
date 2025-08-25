@@ -1,0 +1,14 @@
+name: node
+on: { push: { branches: ["**"] }, pull_request: {} }
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "20" }
+      - run: npm i -g pnpm
+      - run: pnpm i
+      - run: pnpm run build
+      - run: pnpm run lint
+      - run: pnpm run test
