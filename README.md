@@ -7,3 +7,10 @@ MIT © 2025 yanivmizrachiy
 
 ## Security
 See [SECURITY.md](SECURITY.md).
+
+## Development
+- pnpm i
+- pnpm run dev
+
+## Build
+- pnpm run build
