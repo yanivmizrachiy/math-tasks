@@ -1,21 +1,9 @@
-# Dependencies
-node_modules/
-**/node_modules/
-# Logs
-logs/
-*.log
-npm-debug.log*
-yarn-*.log*
-pnpm-debug.log*
-# OS/IDE
+# General
 .DS_Store
 Thumbs.db
-.vscode/
-.idea/
-# Builds
+node_modules/
 dist/
 build/
-.out/
-# Misc
-*.tmp
-*.swp
+.env
+.vscode/
+.idea/
