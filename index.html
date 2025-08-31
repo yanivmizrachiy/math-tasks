@@ -1,7 +1,1 @@
-<!doctype html><html lang="he" dir="rtl"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>math-tasks</title>
-<style>body{font:16px/1.6 system-ui;margin:40px;direction:rtl} .ok{color:#0a0}</style></head>
-<body><h1>שלום, האתר חי!</h1><p class="ok">GitHub Pages פעיל, עדכון אחרון: <span id="ts"></span></p>
-<script>document.getElementById("ts").textContent=new Date().toLocaleString("he-IL")</script>
-</body></html>
+﻿$ErrorActionPreference='Stop'; [Console]::OutputEncoding=[Text.UTF8Encoding]::new(); $p='C:\Users\yaniv\math-tasks'; if(!(Test-Path $p)){New-Item -ItemType Directory -Force -Path $p|Out-Null}; Set-Location $p; $html = Get-Clipboard -Raw; if([string]::IsNullOrWhiteSpace($html)){throw '❌ הלוח ריק – קודם להעתיק את ה-HTML המלא מהקנבס (Ctrl+A ואז Ctrl+C).'}; [IO.File]::WriteAllText((Join-Path $p 'index.html'), $html, [Text.UTF8Encoding]::new($true)); if(!(Test-Path .\.nojekyll)){''|Out-File -Encoding ascii .\.nojekyll}; git init; git remote remove origin 2>$null; git remote add origin https://github.com/yanivmizrachiy/math-tasks.git; git pull origin main 2>$null; git add index.html .nojekyll; git commit -m "publish worksheet builder from clipboard" 2>$null; git branch -M main; git push -u origin main; Write-Host "✅ פורסם. אם Pages פעיל על main: https://yanivmizrachiy.github.io/math-tasks/"
